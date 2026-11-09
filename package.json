@@ -1,0 +1,73 @@
+{
+  "name": "@Devadharshini784/memora",
+  "version": "0.1.0",
+  "description": "Repository-scoped memory and handoffs for coding agents.",
+  "type": "module",
+  "author": "Devadharshini",
+  "homepage": "https://github.com/Devadharshini784/memora",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Devadharshini784/memora"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./mcp": "./src/mcp.ts",
+    "./shared-mcp": "./src/shared-mcp.ts",
+    "./storage": "./src/storage.ts",
+    "./lifecycle": "./src/lifecycle.ts",
+    "./context": "./src/context.ts"
+  },
+  "bin": {
+    "memora": "./src/cli.ts"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "docs/ROADMAP.md",
+    "docs/shared-memory.md",
+    "docs/shared-memory-implementation-contract.md",
+    "docs/shared-security-review.md"
+  ],
+  "scripts": {
+    "test": "bun test ./test",
+    "typecheck": "tsc --noEmit",
+    "cli": "bun run src/cli.ts",
+    "mcp": "bun run src/mcp.ts",
+    "mcp:shared": "bun run src/shared-mcp.ts",
+    "check": "bun test ./test && bun run typecheck && bun run bench/recall.ts && bun run bench:anchors && bun run bench:session && bun run bench:behavior",
+    "bench:anchors": "bun run bench/anchors.ts",
+    "bench:session": "bun run bench/session.ts",
+    "bench:behavior": "bun run bench/behavior/run.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.13",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "keywords": [
+    "agent",
+    "memory",
+    "ai",
+    "llm",
+    "local-first",
+    "mcp",
+    "sqlite",
+    "zettelkasten"
+  ]
+}
